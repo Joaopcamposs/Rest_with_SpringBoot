@@ -1,6 +1,6 @@
 package br.com.joaopcamposs.controller;
 
-import br.com.joaopcamposs.model.Person;
+import br.com.joaopcamposs.data.vo.PersonVO;
 import br.com.joaopcamposs.services.PersonServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,22 +15,22 @@ public class PersonController {
     private PersonServices services;
 
     @GetMapping
-    public List<Person> findAll() {
+    public List<PersonVO> findAll() {
         return services.findAll();
     }
 
     @GetMapping("/{id}")
-    public Person findById(@PathVariable("id") Long id) {
+    public PersonVO findById(@PathVariable("id") Long id) {
         return services.findById(id);
     }
 
     @PostMapping
-    public Person create(@RequestBody Person person) {
+    public PersonVO create(@RequestBody PersonVO person) {
         return services.create(person);
     }
 
     @PutMapping
-    public Person update(@RequestBody Person person) {
+    public PersonVO update(@RequestBody PersonVO person) {
         return services.update(person);
     }
 
